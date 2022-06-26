@@ -1,5 +1,6 @@
 FROM centos:latest
 LABEL maintainer="Dmitry Konovalov konovalov.d.s@gmail.com"
+RUN dnf install -y glibc-langpack-ru
 ENV LANG=ru_RU.UTF-8
 ENV LC_ALL=ru_RU.UTF-8
 RUN rm -f /etc/localtime \

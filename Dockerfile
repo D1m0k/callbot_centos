@@ -64,9 +64,11 @@ RUN rm -f /etc/localtime \
         python3 \
         python3-pip \
         nano \
-        mc \
-    && pip3 install torch numpy pyst2 \
-    && dnf clean all \
+        mc 
+
+RUN pip3 install --no-cache-dir --upgrade pip && \
+&& pip3 install --no-cache-dir torch numpy pyst2 \
+&& dnf clean all \
 && cd /usr/src \
 && git clone -b certified/18.9-cert1 --depth 1 https://github.com/asterisk/asterisk.git \
 && cd /usr/src/asterisk

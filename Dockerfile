@@ -84,13 +84,13 @@ RUN sh contrib/scripts/install_prereq install \
   --enable chan_sip \
   --enable res_snmp \
   --enable res_http_websocket \
-  --disable res_hep_pjsip \
+  --enable res_hep_pjsip \
   --enable res_hep_rtcp \
   --enable res_sorcery_astdb \
   --enable res_sorcery_config \
   --enable res_sorcery_memory \
   --enable res_sorcery_memory_cache \
-  --disable res_pjproject \
+  --enable res_pjproject \
   --enable res_rtp_asterisk \
   --enable res_ari \
   --enable res_ari_applications \
@@ -105,45 +105,45 @@ RUN sh contrib/scripts/install_prereq install \
   --enable res_ari_playbacks \
   --enable res_ari_recordings \
   --enable res_ari_sounds \
-  --disable res_pjsip \
-  --disable res_pjsip_acl \
-  --disable res_pjsip_authenticator_digest \
-  --disable res_pjsip_caller_id \
-  --disable res_pjsip_config_wizard \
-  --disable res_pjsip_dialog_info_body_generator \
-  --disable res_pjsip_diversion \
-  --disable res_pjsip_dlg_options \
-  --disable res_pjsip_dtmf_info \
-  --disable res_pjsip_empty_info \
-  --disable res_pjsip_endpoint_identifier_anonymous \
-  --disable res_pjsip_endpoint_identifier_ip \
-  --disable res_pjsip_endpoint_identifier_user \
-  --disable res_pjsip_exten_state \
-  --disable res_pjsip_header_funcs \
-  --disable res_pjsip_logger \
-  --disable res_pjsip_messaging \
-  --disable res_pjsip_mwi \
-  --disable res_pjsip_mwi_body_generator \
-  --disable res_pjsip_nat \
-  --disable res_pjsip_notify \
-  --disable res_pjsip_one_touch_record_info \
-  --disable res_pjsip_outbound_authenticator_digest \
-  --disable res_pjsip_outbound_publish \
-  --disable res_pjsip_outbound_registration \
-  --disable res_pjsip_path \
-  --disable res_pjsip_pidf_body_generator \
-  --disable res_pjsip_publish_asterisk \
-  --disable res_pjsip_pubsub \
-  --disable res_pjsip_refer \
-  --disable res_pjsip_registrar \
-  --disable res_pjsip_rfc3326 \
-  --disable res_pjsip_sdp_rtp \
-  --disable res_pjsip_send_to_voicemail \
-  --disable res_pjsip_session \
-  --disable res_pjsip_sips_contact \
-  --disable res_pjsip_t38 \
-  --disable res_pjsip_transport_websocket \
-  --disable res_pjsip_xpidf_body_generator \
+  --enable res_pjsip \
+  --enable res_pjsip_acl \
+  --enable res_pjsip_authenticator_digest \
+  --enable res_pjsip_caller_id \
+  --enable res_pjsip_config_wizard \
+  --enable res_pjsip_dialog_info_body_generator \
+  --enable res_pjsip_diversion \
+  --enable res_pjsip_dlg_options \
+  --enable res_pjsip_dtmf_info \
+  --enable res_pjsip_empty_info \
+  --enable res_pjsip_endpoint_identifier_anonymous \
+  --enable res_pjsip_endpoint_identifier_ip \
+  --enable res_pjsip_endpoint_identifier_user \
+  --enable res_pjsip_exten_state \
+  --enable res_pjsip_header_funcs \
+  --enable res_pjsip_logger \
+  --enable res_pjsip_messaging \
+  --enable res_pjsip_mwi \
+  --enable res_pjsip_mwi_body_generator \
+  --enable res_pjsip_nat \
+  --enable res_pjsip_notify \
+  --enable res_pjsip_one_touch_record_info \
+  --enable res_pjsip_outbound_authenticator_digest \
+  --enable res_pjsip_outbound_publish \
+  --enable res_pjsip_outbound_registration \
+  --enable res_pjsip_path \
+  --enable res_pjsip_pidf_body_generator \
+  --enable res_pjsip_publish_asterisk \
+  --enable res_pjsip_pubsub \
+  --enable res_pjsip_refer \
+  --enable res_pjsip_registrar \
+  --enable res_pjsip_rfc3326 \
+  --enable res_pjsip_sdp_rtp \
+  --enable res_pjsip_send_to_voicemail \
+  --enable res_pjsip_session \
+  --enable res_pjsip_sips_contact \
+  --enable res_pjsip_t38 \
+  --enable res_pjsip_transport_websocket \
+  --enable res_pjsip_xpidf_body_generator \
   --enable res_stasis \
   --enable res_stasis_answer \
   --enable res_stasis_device_state \

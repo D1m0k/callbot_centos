@@ -69,7 +69,7 @@ RUN pip3 install --no-cache-dir --upgrade pip \
 && pip3 install --no-cache-dir torch numpy pyst2 \
 && dnf clean all 
 WORKDIR /usr/src \
-&& git clone -b certified/18.9-cert1 --depth 1 https://github.com/asterisk/asterisk.git \
+&& git clone -b certified/18.9-cert1 --depth 1 https://github.com/asterisk/asterisk.git asterisk\
 && ls -l
 WORKDIR /usr/src/asterisk
 # Configure

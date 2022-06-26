@@ -10,8 +10,8 @@ RUN rm -f /etc/localtime \
 && dnf -y install dnf-plugins-core \
 && dnf update && dnf upgrade -y \
 && dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm \
-&& dnf config-manager --set-enabled powertools \
-&& dnf install -y\
+&& dnf config-manager --set-enabled powertools 
+RUN dnf install -y\
         git \
         wget \
         net-tools \

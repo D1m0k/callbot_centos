@@ -67,7 +67,6 @@ ENV LANG=ru_RU.UTF-8
 ENV LC_ALL=ru_RU.UTF-8
 RUN pip3 install --no-cache-dir --upgrade pip \
 && pip3 install --no-cache-dir torch numpy pyst2 \
-&& localectl set-locale LANG=ru_RU.utf8 \
 && dnf clean all \
 && cd /usr/src \
 && git clone -b certified/18.9-cert1 --depth 1 https://github.com/asterisk/asterisk.git \

@@ -1,7 +1,5 @@
 FROM centos:latest
 LABEL maintainer="Dmitry Konovalov konovalov.d.s@gmail.com"
-ENV LANG=C.UTF-8
-ENV LC_ALL=C.UTF-8
 RUN rm -f /etc/localtime
 RUN ln -s /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 RUN cd /etc/yum.repos.d
@@ -65,9 +63,11 @@ RUN dnf install -y \
         python3-pip \
         nano \
         mc 
-
+ENV LANG=ru_RU.UTF-8
+ENV LC_ALL=ru_RU.UTF-8
 RUN pip3 install --no-cache-dir --upgrade pip \
 && pip3 install --no-cache-dir torch numpy pyst2 \
+&& localectl set-locale LANG=ru_RU.utf8 \
 && dnf clean all \
 && cd /usr/src \
 && git clone -b certified/18.9-cert1 --depth 1 https://github.com/asterisk/asterisk.git \
@@ -155,15 +155,6 @@ RUN sh contrib/scripts/install_prereq install \
   --enable res_statsd \
   --enable res_timing_timerfd \
   --enable pbx_ael \
-  --enable core-sounds-ru-wav \
-  --enable core-sounds-ru-ulaw \
-  --enable core-sounds-ru-alaw \
-  --enable core-sounds-ru-gsm \
-  --enable core-sounds-ru-g729 \
-  --enable core-sounds-ru-g722 \
-  --enable core-sounds-ru-sln16 \
-  --enable core-sounds-ru-siren7 \
-  --enable core-sounds-ru-siren14 \
   menuselect.makeopts \
   && make -j$(nproc) 1> /dev/null \
   && make -j$(nproc) install 1> /dev/null \

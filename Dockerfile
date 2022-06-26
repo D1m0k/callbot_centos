@@ -72,11 +72,11 @@ RUN pip3 install --no-cache-dir --upgrade pip \
 && git clone -b certified/18.9-cert1 --depth 1 https://github.com/asterisk/asterisk.git \
 && cd /usr/src/asterisk
 # Configure
-RUN sh contrib/scripts/install_prereq install \
-&& sh contrib/scripts/get_mp3_source.sh \
-&& ./configure 1> /dev/null \
-&& make -j$(nproc) menuselect.makeopts \
-&& menuselect/menuselect \
+RUN sh contrib/scripts/install_prereq install
+RUN sh contrib/scripts/get_mp3_source.sh 
+RUN ./configure 1> /dev/null 
+RUN make -j$(nproc) menuselect.makeopts
+RUN menuselect/menuselect \
   --disable BUILD_NATIVE \
   --enable format_mp3 \
   --enable cdr_csv \

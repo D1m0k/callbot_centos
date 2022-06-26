@@ -4,14 +4,14 @@ RUN dnf install -y glibc-langpack-ru
 ENV LANG=ru_RU.UTF-8
 ENV LC_ALL=ru_RU.UTF-8
 RUN rm -f /etc/localtime \
-&& ln -s /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
-&& cd /etc/yum.repos.d \
-&& sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-* \
-&& dnf install -y epel-release \
-&& dnf -y install dnf-plugins-core \
-&& dnf update && dnf upgrade -y \
-&& dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm \
-&& dnf config-manager --set-enabled powertools 
+RUN ln -s /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+RUN cd /etc/yum.repos.d
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+RUN dnf install -y epel-release
+RUN dnf -y install dnf-plugins-core
+RUN dnf update && dnf upgrade -y
+RUN dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+RUN dnf config-manager --set-enabled powertools 
 RUN dnf install -y\
         git \
         wget \

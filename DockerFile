@@ -199,6 +199,7 @@ RUN ./bootstrap \
                                   /var/spool/asterisk
 # Running asterisk with user asterisk.
 EXPOSE 5060/UDP
+EXPOSE 5060/TCP
 EXPOSE 10000-20000/UDP
 USER asterisk
 ADD docker-entrypoint.sh /docker-entrypoint.sh

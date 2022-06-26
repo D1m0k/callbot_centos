@@ -1,8 +1,7 @@
 FROM centos:latest
 LABEL maintainer="Dmitry Konovalov konovalov.d.s@gmail.com"
-RUN dnf install -y glibc-langpack-ru
-ENV LANG=ru_RU.UTF-8
-ENV LC_ALL=ru_RU.UTF-8
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
 RUN rm -f /etc/localtime
 RUN ln -s /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 RUN cd /etc/yum.repos.d
@@ -12,7 +11,8 @@ RUN dnf -y install dnf-plugins-core
 RUN dnf update && dnf upgrade -y
 RUN dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 RUN dnf config-manager --set-enabled powertools 
-RUN dnf install -y\
+RUN dnf install -y \
+        glibc-langpack-ru \
         git \
         wget \
         net-tools \

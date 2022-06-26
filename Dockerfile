@@ -66,7 +66,7 @@ RUN dnf install -y \
         nano \
         mc 
 
-RUN pip3 install --no-cache-dir --upgrade pip && \
+RUN pip3 install --no-cache-dir --upgrade pip \
 && pip3 install --no-cache-dir torch numpy pyst2 \
 && dnf clean all \
 && cd /usr/src \

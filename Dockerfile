@@ -3,7 +3,7 @@ LABEL maintainer="Dmitry Konovalov konovalov.d.s@gmail.com"
 RUN dnf install -y glibc-langpack-ru
 ENV LANG=ru_RU.UTF-8
 ENV LC_ALL=ru_RU.UTF-8
-RUN rm -f /etc/localtime \
+RUN rm -f /etc/localtime
 RUN ln -s /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 RUN cd /etc/yum.repos.d
 RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*

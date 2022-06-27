@@ -172,13 +172,15 @@ RUN ./bootstrap \
     && echo 'load = res_speech_vosk.so' >> /etc/asterisk/modules.conf \
     && echo 'noload = res_pjsip.so' >> /etc/asterisk/modules.conf \
     && echo 'noload = chan_pjsip.so' >> /etc/asterisk/modules.conf \
-    && echo '#tryinclude sip/*.conf' >> /etc/asterisk/sip.conf \
-    && echo '#tryinclude dialplan/*.conf' >> /etc/asterisk/extensions.conf \
-    && echo '#tryinclude ael/*.conf' >> /etc/asterisk/extensions.ael \
+    && echo '#tryinclude "sip/*.conf"' >> /etc/asterisk/sip.conf \
+    && echo '#tryinclude "dialplan/*.conf"' >> /etc/asterisk/extensions.conf \
+    && echo '#tryinclude "ael/*.conf"' >> /etc/asterisk/extensions.ael \
     && echo 'HISTFILE=$HOME/.bash_history' >> ~/.bashrc \
     && echo 'set tabsize 4 \
              set tabstospaces \
              include /usr/share/nano/*' >> ~/.nanorc \
+    && echo '[general] \
+             url = ws://localhost:2700' > /etc/asterisk/res_speech_vosk.conf \
     # Update max number of open files.
     && sed -i -e 's/# MAXFILES=/MAXFILES=/' /usr/sbin/safe_asterisk \
     # Set tty

@@ -161,8 +161,8 @@ RUN menuselect/menuselect \
   && make -j$(nproc) samples 1> /dev/null
 WORKDIR /usr/src \
 && git clone https://github.com/alphacep/vosk-asterisk.git 
-WORKDIR /usr/src/vosk-asterisk \
-&& mkdir /etc/asterisk/sip /etc/asterisk/dialplan etc/asterisk/ael \
+WORKDIR /usr/src/vosk-asterisk 
+RUN mkdir /etc/asterisk/sip /etc/asterisk/dialplan etc/asterisk/ael \
 RUN ./bootstrap \
     && ./configure --with-asterisk=/usr/src/asterisk --prefix=/usr \
     && make \
@@ -195,5 +195,4 @@ EXPOSE 5060/UDP
 EXPOSE 5060/TCP
 EXPOSE 10000-20000/UDP
 USER asterisk
-ADD docker-entrypoint.sh /docker-entrypoint.sh
-ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD /usr/sbin/asterisk -fvvvvv

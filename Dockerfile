@@ -174,11 +174,13 @@ RUN ./bootstrap \
     && echo 'noload = chan_pjsip.so' >> /etc/asterisk/modules.conf \
     && echo '#tryinclude "sip/*.conf"' >> /etc/asterisk/sip.conf \
     && echo '#tryinclude "dialplan/*.conf"' >> /etc/asterisk/extensions.conf \
-    && echo '#tryinclude "ael/*.conf"' >> /etc/asterisk/extensions.ael \
-    && echo 'HISTFILE=$HOME/.bash_history' >> ~/.bashrc \
+    && echo '#include "ael/*.conf"' >> /etc/asterisk/extensions.ael \
+    && echo 'HISTFILE=$HOME/.bash_history' >> /etc/skel/.bashrc \
+    && echo 'LANG="ru_RU.UTF-8" \
+             LC_ALL="ru_RU.UTF-8"' > /etc/locale.conf \
     && echo 'set tabsize 4 \
              set tabstospaces \
-             include /usr/share/nano/*' >> ~/.nanorc \
+             include /usr/share/nano/*' >> /etc/skel/.nanorc \
     && echo '[general] \
              url = ws://localhost:2700' > /etc/asterisk/res_speech_vosk.conf \
     # Update max number of open files.

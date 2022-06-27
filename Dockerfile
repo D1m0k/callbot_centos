@@ -159,8 +159,8 @@ RUN menuselect/menuselect \
   && make -j$(nproc) 1> /dev/null \
   && make -j$(nproc) install 1> /dev/null \
   && make -j$(nproc) samples 1> /dev/null
-WORKDIR /usr/src \
-&& git clone https://github.com/alphacep/vosk-asterisk.git 
+WORKDIR /usr/src 
+RUN git clone https://github.com/alphacep/vosk-asterisk.git 
 WORKDIR /usr/src/vosk-asterisk 
 RUN mkdir /etc/asterisk/sip /etc/asterisk/dialplan /etc/asterisk/ael 
 RUN ./bootstrap \

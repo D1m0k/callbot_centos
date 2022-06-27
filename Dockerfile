@@ -162,7 +162,7 @@ RUN menuselect/menuselect \
 WORKDIR /usr/src \
 && git clone https://github.com/alphacep/vosk-asterisk.git 
 WORKDIR /usr/src/vosk-asterisk 
-RUN mkdir /etc/asterisk/sip /etc/asterisk/dialplan etc/asterisk/ael \
+RUN mkdir /etc/asterisk/sip /etc/asterisk/dialplan etc/asterisk/ael 
 RUN ./bootstrap \
     && ./configure --with-asterisk=/usr/src/asterisk --prefix=/usr \
     && make \

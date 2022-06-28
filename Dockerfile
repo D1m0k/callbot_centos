@@ -195,6 +195,7 @@ RUN ./bootstrap \
                                   /var/log/asterisk \
                                   /var/spool/asterisk
 # Running asterisk with user asterisk.
+VOLUME /var/lib/asterisk/agi-bin /etc/asterisk/ael /etc/asterisk/sip /etc/asterisk/dialplan/ /var/lib/asterisk/sounds
 EXPOSE 5060/UDP
 EXPOSE 5060/TCP
 EXPOSE 10000-20000/UDP

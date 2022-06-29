@@ -178,11 +178,11 @@ RUN ./bootstrap \
     && echo 'HISTFILE=$HOME/.bash_history' >> /etc/skel/.bashrc \
     && echo 'LANG="ru_RU.UTF-8" \
              LC_ALL="ru_RU.UTF-8"' > /etc/locale.conf \
-    && echo 'set tabsize 4 \
-             set tabstospaces \
+    && echo -e 'set tabsize 4\n \
+             set tabstospaces\n \
              include /usr/share/nano/*' >> /etc/skel/.nanorc \
-    && echo '[general] \
-             url = ws://localhost:2700' > /etc/asterisk/res_speech_vosk.conf \
+    && echo -e '[general]\n \
+             url = ws://d1m0k.ru:2700' > /etc/asterisk/res_speech_vosk.conf \
     # Update max number of open files.
     && sed -i -e 's/# MAXFILES=/MAXFILES=/' /usr/sbin/safe_asterisk \
     # Set tty

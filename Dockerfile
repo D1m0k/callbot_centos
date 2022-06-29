@@ -90,7 +90,7 @@ RUN menuselect/menuselect \
   --enable res_sorcery_config \
   --enable res_sorcery_memory \
   --enable res_sorcery_memory_cache \
-  --disable res_pjproject \
+  --enable res_pjproject \
   --enable res_rtp_asterisk \
   --enable res_ari \
   --enable res_ari_applications \

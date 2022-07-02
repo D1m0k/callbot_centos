@@ -66,7 +66,7 @@ RUN dnf install -y \
 ENV LANG=ru_RU.UTF-8
 ENV LC_ALL=ru_RU.UTF-8
 RUN pip3 install --no-cache-dir --upgrade pip \
-&& pip3 install --no-cache-dir torch numpy pyst2 \
+&& pip3 install --no-cache-dir torch numpy pyst2 paho-mqtt \
 && dnf clean all 
 WORKDIR /usr/src 
 RUN git clone -b certified/18.9-cert1 --depth 1 https://github.com/asterisk/asterisk.git asterisk 

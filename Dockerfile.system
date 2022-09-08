@@ -1,0 +1,70 @@
+FROM centos:latest
+LABEL maintainer="Dmitry Konovalov konovalov.d.s@gmail.com"
+RUN rm -f /etc/localtime
+RUN ln -s /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+RUN cd /etc/yum.repos.d
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+RUN dnf install -y epel-release
+RUN dnf -y install dnf-plugins-core
+RUN dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+RUN dnf config-manager --set-enabled powertools 
+RUN dnf install -y \
+        glibc-langpack-ru \
+        git \
+        wget \
+        net-tools \
+        gcc \
+        cpp \
+        ncurses \
+        ncurses-devel \
+        libxml2 \
+        libxml2-devel \
+        sqlite \
+        openssl-devel \
+        newt-devel \
+        libuuid-devel \
+        gcc-c++ \
+        sqlite-devel \
+        psmisc \
+        libtermcap-devel \
+        libtiff-devel \
+        gtk2-devel \
+        libtool \
+        libuuid-devel \
+        subversion \
+        kernel-devel \
+        crontabs \
+        cronie-anacron \
+        mariadb \
+        net-snmp-devel \
+        xinetd \
+        tar \
+        jansson-devel \
+        make \
+        bzip2 \
+        pjproject-devel \
+        libsrtp-devel \
+        gsm-devel \
+        speex-devel \
+        gettext \
+        unixODBC \
+        unixODBC-devel \
+        libtool-ltdl \
+        libtool-ltdl-devel \
+        mariadb-connector-odbc \
+        libedit-devel \
+        gmime30-devel \
+        speexdsp-devel \
+        lua-devel \
+        speex-devel \
+        libedit \
+        diffutils \
+        python3 \
+        python3-pip \
+        nano \
+        mc 
+ENV LANG=ru_RU.UTF-8
+ENV LC_ALL=ru_RU.UTF-8
+RUN pip3 install --no-cache-dir --upgrade pip \
+&& pip3 install --no-cache-dir torch numpy pyst2 paho-mqtt dadata \
+&& dnf clean all 
